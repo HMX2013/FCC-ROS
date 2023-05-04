@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node name="fcc_node" pkg="fcc" type="fcc_node" output="screen">
+    <param name="lidar_points_topic"       value="/semi_kitti/non_ground_pc"/>
+    <param name="output_frame"            value="map"/>
+    <param name="window_h"                 value="7"/>
+    <param name="window_w"                 value="7"/>
+  </node>
+
+  <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" output="screen" />
+
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find fcc)/rviz/kitti.rviz" output="log" respawn="true" />
+
+</launch> 
